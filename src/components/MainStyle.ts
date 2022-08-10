@@ -4,6 +4,7 @@ const MainContainer = styled.main`
   font-family: "Noto Sans KR", sans-serif;
   background-color: #f4f7fe;
   width: calc(100% - 290px);
+  position: relative;
 `;
 const MainHeader = styled.div`
   display: flex;

@@ -1,8 +1,9 @@
 import type { NextPage } from "next";
-import Nav from "../components/Nav";
-import Container from "../components/HomeStyle";
-import Main from "../components/Main";
 import { createGlobalStyle } from "styled-components";
+import Container from "../components/HomeStyle";
+import Nav from "../components/Nav";
+import Main from "../components/Main";
+import Paging from "@components/Paging";
 import reset from "styled-reset";
 import useSWR from "swr";
 import axios from "axios";
@@ -24,7 +25,9 @@ const Home: NextPage = () => {
       <GlobalStyles />
       <Container>
         <Nav />
-        <Main projectData={data}></Main>
+        <Main projectData={data}>
+          <Paging />
+        </Main>
       </Container>
     </>
   );

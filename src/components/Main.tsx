@@ -1,21 +1,13 @@
 import UI from "./MainStyle";
-import {
-  Search,
-  Noti,
-  Avatar,
-  Add,
-  True,
-  False,
-  Arrow,
-  Etc,
-} from "./icon/IconIndex";
+import { Search, Noti, Avatar, Add, True, Arrow, Etc } from "./icon/IconIndex";
 import { ProjectData } from "interfaces/Project";
 import Image from "next/image";
 import { AddPriceComma } from "../utils/ProjectUtilsFn";
 interface Props {
   projectData: ProjectData[];
+  children: React.ReactNode;
 }
-const Main = ({ projectData }: Props) => {
+const Main = ({ projectData, children }: Props) => {
   return (
     <UI.MainContainer>
       <UI.MainHeader>
@@ -93,18 +85,7 @@ const Main = ({ projectData }: Props) => {
               : ""}
           </UI.Tbody>
         </UI.Table>
-        <div>
-          <ul>
-            <li>1</li>
-            <li>2</li>
-            <li>3</li>
-            <li>
-              <Etc />
-            </li>
-            <li>10</li>
-            <li>Next</li>
-          </ul>
-        </div>
+        {children}
       </UI.MainContent>
     </UI.MainContainer>
   );
