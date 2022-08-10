@@ -61,6 +61,7 @@ const Main = ({ projectData, children }: Props) => {
                             height={51}
                             layout="fill"
                             src={`${item.thumbnail}`}
+                            unoptimized={true}
                             alt="thumbnail image"
                           />
                           <span>1:45:00</span>

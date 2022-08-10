@@ -5,6 +5,7 @@ const MainContainer = styled.main`
   background-color: #f4f7fe;
   width: calc(100% - 290px);
   position: relative;
+  overflow: hidden;
 `;
 const MainHeader = styled.div`
   display: flex;
