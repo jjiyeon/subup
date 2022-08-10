@@ -1,4 +1,4 @@
-import Archive from "../../assets/archive.svg";
+import Archive from "../../assets/Archive.svg";
 import Home from "../../assets/Home.svg";
 import Project from "../../assets/Project.svg";
 import Setting from "../../assets/Setting.svg";
