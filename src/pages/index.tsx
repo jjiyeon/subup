@@ -4,6 +4,8 @@ import Container from "../components/HomeStyle";
 import Main from "../components/Main";
 import { createGlobalStyle } from "styled-components";
 import reset from "styled-reset";
+import useSWR from "swr";
+import axios from "axios";
 
 const GlobalStyles = createGlobalStyle`
     ${reset}
@@ -15,12 +17,14 @@ const GlobalStyles = createGlobalStyle`
     
 `;
 const Home: NextPage = () => {
+  const fetcher = (url: string) => axios.get(url).then((res) => res.data);
+  const { data, error } = useSWR("/api/projects", fetcher);
   return (
     <>
       <GlobalStyles />
       <Container>
         <Nav />
-        <Main></Main>
+        <Main projectData={data}></Main>
       </Container>
     </>
   );

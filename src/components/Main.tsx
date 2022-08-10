@@ -1,6 +1,21 @@
 import UI from "./MainStyle";
-import { Search, Noti, Avatar, Add } from "./icon/IconIndex";
-const Main = () => {
+import {
+  Search,
+  Noti,
+  Avatar,
+  Add,
+  True,
+  False,
+  Arrow,
+  Etc,
+} from "./icon/IconIndex";
+import { ProjectData } from "interfaces/Project";
+import Image from "next/image";
+import { AddPriceComma } from "../utils/ProjectUtilsFn";
+interface Props {
+  projectData: ProjectData[];
+}
+const Main = ({ projectData }: Props) => {
   return (
     <UI.MainContainer>
       <UI.MainHeader>
@@ -36,53 +51,60 @@ const Main = () => {
             </UI.Tr>
           </UI.Thead>
           <UI.Tbody>
-            <UI.Tr>
-              <UI.Td>
-                <span>4일 23시간 30분</span>
-                <p>In Progress(홍길동)</p>
-              </UI.Td>
-              <UI.Td>
-                <p>홍길동</p>
-              </UI.Td>
-              <UI.Td>
-                <p>
-                  <span>1:45:00</span>
-                </p>
-                <p>[Playlist] 침착하게 완성하는 오늘은 좋은날</p>
-              </UI.Td>
-              <UI.Td>0</UI.Td>
-              <UI.Td>3,000원</UI.Td>
-              <UI.Td>
-                <button>Korean</button>
-                <button>English</button>
-              </UI.Td>
-              <UI.Td>...</UI.Td>
-            </UI.Tr>
-
-            <UI.Tr>
-              <UI.Td>
-                <span>4일 23시간 30분</span>
-                <p>In Progress(홍길동)</p>
-              </UI.Td>
-              <UI.Td>
-                <p>홍길동</p>
-              </UI.Td>
-              <UI.Td>
-                <p>
-                  <span>1:45:00</span>
-                </p>
-                <p>[Playlist] 침착하게 완성하는 오늘은 좋은날</p>
-              </UI.Td>
-              <UI.Td>0</UI.Td>
-              <UI.Td>3,000원</UI.Td>
-              <UI.Td>
-                <button>Korean</button>
-                <button>English</button>
-              </UI.Td>
-              <UI.Td>...</UI.Td>
-            </UI.Tr>
+            {projectData
+              ? projectData.map((item, index) => (
+                  <>
+                    <UI.Tr key={index}>
+                      <UI.Td>
+                        <span>4일 23시간 30분</span>
+                        <p>In Progress(홍길동)</p>
+                      </UI.Td>
+                      <UI.Td>
+                        <p>{item.incharge ? item.incharge : "담당미정"}</p>
+                      </UI.Td>
+                      <UI.Td>
+                        <p>
+                          <Image
+                            width={90}
+                            height={51}
+                            layout="fill"
+                            src={`${item.thumbnail}`}
+                            alt="thumbnail image"
+                          />
+                          <span>1:45:00</span>
+                        </p>
+                        <p>{item.title}</p>
+                      </UI.Td>
+                      <UI.Td>
+                        <True />
+                      </UI.Td>
+                      <UI.Td>{AddPriceComma(item.price)}원</UI.Td>
+                      <UI.Td>
+                        <UI.LangButton>Korean</UI.LangButton>
+                        <Arrow />
+                        <UI.LangButton>English</UI.LangButton>
+                      </UI.Td>
+                      <UI.Td>
+                        <Etc />
+                      </UI.Td>
+                    </UI.Tr>
+                  </>
+                ))
+              : ""}
           </UI.Tbody>
         </UI.Table>
+        <div>
+          <ul>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>
+              <Etc />
+            </li>
+            <li>10</li>
+            <li>Next</li>
+          </ul>
+        </div>
       </UI.MainContent>
     </UI.MainContainer>
   );
