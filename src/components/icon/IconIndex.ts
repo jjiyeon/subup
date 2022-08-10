@@ -10,6 +10,11 @@ import Noti from "../../assets/Noti.svg";
 import Kodori from "../../assets/Kodori.svg";
 import Avatar from "../../assets/Avatar.svg";
 import Add from "../../assets/Add.svg";
+
+import True from "../../assets/True.svg";
+import False from "../../assets/False.svg";
+import Arrow from "../../assets/Arrow.svg";
+import Etc from "../../assets/Etc.svg";
 export {
   Archive,
   Home,
@@ -23,4 +28,8 @@ export {
   Kodori,
   Avatar,
   Add,
+  True,
+  False,
+  Etc,
+  Arrow,
 };
