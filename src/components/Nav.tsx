@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import UI from "./NavStyle";
 import { HD_Width } from "../const/Viewport";
+import { Size } from "interfaces/Project";
 import {
   Subup,
+  HDSubup,
   Archive,
   Home,
   Project,
@@ -10,42 +12,55 @@ import {
   Setting,
   Logout,
 } from "./icon/IconIndex";
-const Nav = () => {
+interface Props {
+  deviceSize?: Size;
+}
+const Nav = ({ deviceSize }: Props) => {
   return (
     <UI.NavContainer>
       <UI.NavHeader>
-        <Subup />
-        <br />
-        EDITOR
+        {deviceSize ? (
+          deviceSize.width > HD_Width ? (
+            <>
+              <Subup />
+              <br />
+              EDITOR
+            </>
+          ) : (
+            <HDSubup />
+          )
+        ) : (
+          ""
+        )}
       </UI.NavHeader>
 
       <UI.MenuWrapper>
         <UI.MenuUl>
           <UI.MenuLi>
             <Home />
-            Dashbord
+            {deviceSize ? (deviceSize.width > HD_Width ? "Dashbord" : "") : ""}
           </UI.MenuLi>
           <UI.MenuLi>
             <Project />
-            Projects
+            {deviceSize ? (deviceSize.width > HD_Width ? "Projects" : "") : ""}
           </UI.MenuLi>
           <UI.MenuLi>
             <User />
-            Users
+            {deviceSize ? (deviceSize.width > HD_Width ? "Users" : "") : ""}
           </UI.MenuLi>
           <UI.MenuLi>
             <Archive />
-            Archive
+            {deviceSize ? (deviceSize.width > HD_Width ? "Archive" : "") : ""}
           </UI.MenuLi>
           <UI.MenuLi>
             <Setting />
-            Settings
+            {deviceSize ? (deviceSize.width > HD_Width ? "Settings" : "") : ""}
           </UI.MenuLi>
         </UI.MenuUl>
         <UI.MenuBottom>
           <UI.Logout>
             <Logout />
-            Logout
+            {deviceSize ? (deviceSize.width > HD_Width ? "Logout" : "") : ""}
           </UI.Logout>
         </UI.MenuBottom>
       </UI.MenuWrapper>

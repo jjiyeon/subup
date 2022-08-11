@@ -8,3 +8,8 @@ export interface ProjectData {
   price: number;
   language: string;
 }
+
+export interface Size {
+  width: number;
+  height: number;
+}

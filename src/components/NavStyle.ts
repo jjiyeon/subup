@@ -1,11 +1,12 @@
 import styled from "styled-components";
+import { HD_Width } from "const/Viewport";
 
 const NavContainer = styled.div`
   width: 290px;
   height: 100vh;
   display: inline-block;
   color: #98a0cc;
-  @media screen and (max-width: 1280) {
+  @media screen and (max-width: ${HD_Width}px) {
     width: 75px;
   }
 `;
@@ -14,6 +15,9 @@ const NavHeader = styled.h1`
   font-size: 20px;
   padding: 42px 0 21px 34px;
   border-bottom: 1px solid #f4f7fe;
+  @media screen and (max-width: ${HD_Width}px) {
+    padding: 15px 27px 13px 26px;
+  }
 `;
 const MenuWrapper = styled.div`
   position: relative;
@@ -24,6 +28,10 @@ const MenuUl = styled.ul`
   flex-direction: column;
   gap: 23px;
   padding: 38px 0 0 0;
+  @media screen and (max-width: ${HD_Width}px) {
+    align-items: center;
+    justify-content: center;
+  }
 `;
 const MenuLi = styled.li`
   height: 36px;
@@ -61,6 +69,9 @@ const MenuLi = styled.li`
       margin-left: 2.25px;
     }
   }
+  @media screen and (max-width: ${HD_Width}px) {
+    padding: 0;
+  }
 `;
 const MenuBottom = styled.div`
   position: absolute;
@@ -80,6 +91,10 @@ const Logout = styled.button`
   font-size: 16px;
   line-height: 30px;
   color: #a3aed0;
+  @media screen and (max-width: ${HD_Width}px) {
+    padding: 0;
+    justify-content: center;
+  }
 `;
 
 const UI = {

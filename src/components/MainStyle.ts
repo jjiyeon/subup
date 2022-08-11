@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { HD_Width } from "const/Viewport";
 
 const MainContainer = styled.main`
   font-family: "Noto Sans KR", sans-serif;
@@ -6,6 +7,9 @@ const MainContainer = styled.main`
   width: calc(100% - 290px);
   position: relative;
   overflow: hidden;
+  @media screen and (max-width: ${HD_Width}px) {
+    width: calc(100% - 75px);
+  }
 `;
 const MainHeader = styled.div`
   display: flex;
