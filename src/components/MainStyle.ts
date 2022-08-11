@@ -1,5 +1,8 @@
 import styled from "styled-components";
 import { HD_Width } from "const/Viewport";
+interface StatusCode {
+  code: number;
+}
 
 const MainContainer = styled.main`
   font-family: "Noto Sans KR", sans-serif;
@@ -198,6 +201,54 @@ const Td = styled.td`
   justify-content: center;
   align-items: center;
 `;
+const ProgressBar = styled.span<StatusCode>`
+  width: 142px;
+  height: 6px;
+  background: #c9cccd;
+  border-radius: 8px;
+  text-indent: -99999px;
+  position: relative;
+
+  &::after {
+    content: "";
+    height: 6px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #ffc107;
+    ${(props: StatusCode) =>
+      props.code === 1 &&
+      `
+        width: calc(142px / 3);
+      `}
+    ${(props: StatusCode) =>
+      props.code === 2 &&
+      `
+        width: calc(142px - (142px / 3));
+        
+      `}
+  }
+`;
+
+const ProgressStatus = styled.p<StatusCode>`
+  font-weight: 700;
+  ${(props: StatusCode) =>
+    props.code === 0 &&
+    `color : #9CA3B4;
+    `}
+  ${(props: StatusCode) =>
+    props.code === 1 &&
+    `color : #FFC107;
+    `}
+  ${(props: StatusCode) =>
+    props.code === 2 &&
+    `color : #FFC107;
+    `}
+    ${(props: StatusCode) =>
+    props.code === 3 &&
+    `color : #2368FF;
+    `}
+`;
 const LangButton = styled.button`
   width: 67px;
   height: 32px;
@@ -226,6 +277,8 @@ const UI = {
   Th,
   Td,
   LangButton,
+  ProgressBar,
+  ProgressStatus,
 };
 
 export default UI;

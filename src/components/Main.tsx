@@ -8,7 +8,19 @@ interface Props {
   children: React.ReactNode;
   deviceSize?: Size;
 }
+type ProgressType = {
+  [key: number]: string;
+};
 const Main = ({ projectData, children, deviceSize }: Props) => {
+  const ProgressStatus: ProgressType = {
+    0: "Unclaimed",
+    1: "In Progress",
+    2: "In Progress",
+    3: "Done",
+    4: "Review",
+  };
+
+  console.log(projectData);
   return (
     <UI.MainContainer>
       <UI.MainHeader>
@@ -48,8 +60,22 @@ const Main = ({ projectData, children, deviceSize }: Props) => {
               ? projectData.map((item, index) => (
                   <UI.Tr key={index}>
                     <UI.Td>
-                      <span>4일 23시간 30분</span>
-                      <p>In Progress(홍길동)</p>
+                      <UI.ProgressStatus code={item.status}>
+                        {item.status != null
+                          ? ProgressStatus[item.status]
+                          : "미정"}
+                      </UI.ProgressStatus>
+                      {item.status ? (
+                        item.status === 0 || item.status === 3 ? (
+                          ""
+                        ) : (
+                          <UI.ProgressBar code={item.status}>
+                            progress bar..
+                          </UI.ProgressBar>
+                        )
+                      ) : (
+                        ""
+                      )}
                     </UI.Td>
                     <UI.Td>
                       <p>{item.incharge ? item.incharge : "담당미정"}</p>
