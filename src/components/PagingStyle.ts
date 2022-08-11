@@ -4,6 +4,7 @@ const Paging = styled.div`
   position: absolute;
   width: 100%;
   bottom: 14%;
+  left: 0;
 `;
 const PagingUl = styled.ul`
   display: flex;
