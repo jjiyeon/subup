@@ -13,6 +13,9 @@ const MainContainer = styled.main`
   @media screen and (max-width: ${HD_Width}px) {
     width: calc(100% - 75px);
   }
+  button {
+    cursor: pointer;
+  }
 `;
 const MainHeader = styled.div`
   display: flex;
@@ -145,30 +148,37 @@ const Tr = styled.tr`
     width: 285px;
   }
   td:nth-child(3) {
-    width: 285px;
-    display: flex;
-    justify-content: start;
-    align-items: center;
-    gap: 9px;
-    font-size: 12px;
-    line-height: 16px;
-    color: #4b4e51;
-    font-weight: 700;
-    p:nth-child(1) {
-      width: 90px;
-      height: 51px;
-      position: relative;
-      background-color: tomato;
-    }
-    span {
-      display: block;
-      background: rgba(0, 0, 0, 0.3);
-      color: #fff;
-      text-align: right;
-      position: absolute;
-      width: 100%;
-      bottom: 0;
+    a {
+      width: 285px;
+      height: 100%;
+      display: flex;
+      justify-content: start;
+      align-items: center;
+      gap: 9px;
+      font-size: 12px;
+      line-height: 16px;
+      color: #4b4e51;
       font-weight: 700;
+      padding: 0 0 0 4px;
+      p:nth-child(1) {
+        width: 90px;
+        height: 51px;
+        position: relative;
+        background-color: tomato;
+      }
+      span {
+        width: 100%;
+        height: 25px;
+        position: absolute;
+        bottom: 0;
+        display: flex;
+        justify-content: end;
+        align-items: center;
+        padding-right: 9px;
+        color: #fff;
+        font-weight: 700;
+        background: rgba(0, 0, 0, 0.7);
+      }
     }
   }
   th:nth-child(4),
@@ -200,6 +210,11 @@ const Td = styled.td`
   display: flex;
   justify-content: center;
   align-items: center;
+  border-right: 1px solid #efefef;
+  box-sizing: border-box;
+  &._last {
+    border-right: 0;
+  }
 `;
 const ProgressBar = styled.span<StatusCode>`
   width: 142px;

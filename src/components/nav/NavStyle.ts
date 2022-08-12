@@ -34,10 +34,11 @@ const MenuUl = styled.ul`
   }
 `;
 const MenuLi = styled.li`
+  width: 100%;
   height: 36px;
   display: flex;
   align-items: center;
-
+  position: relative;
   padding: 0 0 0 35.8px;
   font-size: 16px;
   line-height: 30px;
@@ -69,8 +70,20 @@ const MenuLi = styled.li`
       margin-left: 2.25px;
     }
   }
+  &._curr {
+    &::after {
+      content: "";
+      width: 4px;
+      height: 100%;
+      position: absolute;
+      background: #2368ff;
+      border-radius: 4px;
+      right: 0;
+    }
+  }
   @media screen and (max-width: ${HD_Width}px) {
     padding: 0;
+    justify-content: center;
   }
 `;
 const MenuBottom = styled.div`

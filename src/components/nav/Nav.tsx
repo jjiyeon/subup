@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import UI from "./NavStyle";
-import { HD_Width } from "../const/Viewport";
+import { HD_Width } from "../../const/Viewport";
 import { Size } from "interfaces/Project";
 import {
   Subup,
@@ -11,7 +11,7 @@ import {
   User,
   Setting,
   Logout,
-} from "./icon/IconIndex";
+} from "../icon/IconIndex";
 interface Props {
   deviceSize?: Size;
 }
@@ -40,7 +40,7 @@ const Nav = ({ deviceSize }: Props) => {
             <Home />
             {deviceSize ? (deviceSize.width > HD_Width ? "Dashbord" : "") : ""}
           </UI.MenuLi>
-          <UI.MenuLi>
+          <UI.MenuLi className="_curr">
             <Project />
             {deviceSize ? (deviceSize.width > HD_Width ? "Projects" : "") : ""}
           </UI.MenuLi>

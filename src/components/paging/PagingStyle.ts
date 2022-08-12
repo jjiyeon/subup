@@ -1,10 +1,14 @@
 import styled from "styled-components";
+import { HD_Width } from "const/Viewport";
 
 const Paging = styled.div`
   position: absolute;
   width: 100%;
-  bottom: 14%;
+  bottom: 74px;
   left: 0;
+  @media screen and (max-width: ${HD_Width}px) {
+    bottom: 43px;
+  }
 `;
 const PagingUl = styled.ul`
   display: flex;

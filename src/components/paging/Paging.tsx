@@ -1,4 +1,4 @@
-import { Etc } from "./icon/IconIndex";
+import { Etc } from "../icon/IconIndex";
 import UI from "./PagingStyle";
 const Paging = () => {
   return (
