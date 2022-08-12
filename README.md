@@ -6,8 +6,7 @@
 
 <aside>
 💡 projects.ts에 있는 data를 이용하여 피그마와 같이 user interface 만드는 작업입니다.
-Figma: [https://www.figma.com/file/gy44UJpiAJliNgLdY1xbAN/sample-editor](https://www.figma.com/file/gy44UJpiAJliNgLdY1xbAN/sample-editor)
-<요청사항>
+Figma: [https://www.figma.com/file/gy44UJpiAJliNgLdY1xbAN/sample-editor]
 Next.js with TypeScript
 ("projects.ts" goes into "/pages/api/")
 Please put the projects.ts inside "pages/api/"
