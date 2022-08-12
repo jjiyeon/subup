@@ -1,34 +1,50 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 요청사항
 
-## Getting Started
+<aside>
+💡 projects.ts에 있는 data를 이용하여 피그마와 같이 user interface 만드는 작업입니다.
+Figma: [https://www.figma.com/file/gy44UJpiAJliNgLdY1xbAN/sample-editor](https://www.figma.com/file/gy44UJpiAJliNgLdY1xbAN/sample-editor)
+<요청사항>
+Next.js with TypeScript
+("projects.ts" goes into "/pages/api/")
+Please put the projects.ts inside "pages/api/"
+Make the project page
+(you don't have to follow Figma at 100%)
+You can use pure css or any other framework you like
+fetch the data from the api link (hint: useSWR) and display it
 
-First, run the development server:
+</aside>
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+## 구현 상세
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- [x] FHD / HD 화면 컴포넌트 작업
+- [x] 프로젝트 기술 스택 및 사용한 라이브러리
+  - [x] Nextjs with Typescript
+  - [x] styled-component
+  - [x] SWR, Axios
+- [x] projects.ts API 데이터 화면 구현 예시
+  ```
+  interface ProjectData {
+    thumbnail: string;
+    title: string;
+    url: string;
+    duration: number;
+    status: number;
+    incharge: string;
+    price: number;
+    language: string;
+  }
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+  const ProgressStatus: ProgressType = {
+      0: "Unclaimed",
+      1: "In Progress",
+      2: "In Progress",
+      3: "Done",
+      4: "Review",
+    };
+  ```
+  1. status 코드에 따라 Status 상태를 표시
+  2. incharge 값은 Translator로 담당자 표시
+  3. thumbnail, url, title 값을 화면 Video 영역에 구현
+  4. Timecoded는 어떤값을 사용하는게 좋을지 몰라, O로 동일하게 표시했습니다.
+  5. price 가격은 Price/Min 컬럼에 표시
+  6. language 데이터는 ‘KREN’ 이렇게 들어오는 값을 KR , EN으로 분리해서 Language 버튼으로 그렸습니다.
